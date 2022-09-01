@@ -1,0 +1,8 @@
+---
+gpsd_restart_handler_state: restarted
+ntpd_restart_handler_state: restarted
+
+gpsd_start_daemon: 'true'
+gpsd_options: '-b -n -D5'
+usb_devices: '/dev/ttyACM0'
+usb_auto: 'true'

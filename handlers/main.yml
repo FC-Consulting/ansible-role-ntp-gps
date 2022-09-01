@@ -1,0 +1,6 @@
+---
+- name: restart gpsd
+  service: "name=gpsd state={{ gpsd_restart_handler_state }}"
+
+- name: restart ntpd
+  service: "name=ntpd state={{ ntpd_restart_handler_state }}"

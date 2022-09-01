@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Florent COLINET
+  role_name: ntp_gps
+  description: "Install a ntp server from gps like this one : TOPGNSS GNSS Module GN800G"
+  license: GPLv3
+  company: FC-Consulting
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Debian
+      versions:
+        - all
+
+  galaxy_tags:
+    - ntp
+    - gps
+
+  dependencies:
+    - src: redbeard28.basetools

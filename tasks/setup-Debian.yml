@@ -1,0 +1,8 @@
+---
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Ensure old versions are not installed."
+  package:
+    name:
+      - ntp
+      - gpsd
+      - gpsd-clients
+    state: absent

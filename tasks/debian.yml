@@ -1,0 +1,31 @@
+---
+- include_tasks: setup-Debian.yml
+
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Install gpsd."
+  package:
+    name:
+      - gpsd
+      - gpsd-clients
+
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Configure gpsd."
+  template:
+    src: "gpsd.j2"
+    dest: "/etc/default/gpsd"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart gpsd
+
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Install ntp."
+  package:
+    name:
+      - ntp
+
+- name: "{{ ansible_distribution | lower }} | {{ ansible_distribution_release }} - Configure ntp."
+  template:
+    src: "ntp.conf.j2"
+    dest: "/etc/ntp.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart ntpd
